@@ -7,7 +7,7 @@ const Header = () => {
                 <h1>LOGO</h1>
                 <div>
                     <Link to={"/"}>Home</Link>
-                    <Link to={"/read-note"}>About</Link>
+                    <Link to={"/write-note"}>Nowa Notatkas</Link>
                 </div>
             </div>
             <button className="login-search">search</button>
