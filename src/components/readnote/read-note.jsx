@@ -4,21 +4,18 @@ import {  EditorState, convertToRaw, convertFromRaw, ContentBlock, ContentState,
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import axios from "axios";
 const ReadNotes = (props) => {
-  const id = props.id
-    const [editorState, setEditorState] = useState(() =>
-    EditorState.createEmpty()
+  const [editorState, setEditorState] = useState(() =>
+  EditorState.createEmpty()
   );
-    const getNote = async () => {
-        const note = await axios.get(`/note?id=${id}`).then(repsonse => repsonse.data)
-        console.log(JSON.parse(note.content).blocks)
-        console.log(convertFromRaw(JSON.parse(note.content))._map)
-        setEditorState(ContentState.createFromBlockArray(convertFromRaw(JSON.parse(note.content))._map))
-        // return note
-    }
-    useEffect(() => {
-      getNote()
-  },[])
-
+  const getNote = async () => {
+    const note = await axios.get(`/note?id=${id}`).then(repsonse => repsonse.data)
+    setEditorState(() => EditorState.createWithContent(convertFromRaw(JSON.parse(note.content))))
+    // return note
+}
+useEffect(() => {
+  getNote()
+},[])
+  const id = props.id
   const saveNote = () => {
     axios.post("/notes", {
       content: convertToRaw(editorState.getCurrentContent()),
