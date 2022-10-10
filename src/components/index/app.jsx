@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from "react-router-dom";
-import { Editor, EditorState } from 'draft-js'
 import axios from 'axios';
 import './App.css';
 const App = () => {

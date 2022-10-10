@@ -8,7 +8,7 @@ import ReadNotes from "./components/readnote/read-note";
 import App from "./components/index/app";
 import Header from "./components/header/header";
 import WriteNote from "./components/writeNote/write-note";
-import RichtextEditor from "./siema";
+import Tak from "./spoko";
 
 
 
@@ -16,7 +16,6 @@ function RoutesMenu() {
 
   const ReadNote = () => {
     let { id } = useParams();
-    console.log(id)
     return <ReadNotes id={id} />
   }
 
@@ -27,8 +26,8 @@ function RoutesMenu() {
         <Routes>
           <Route path='/' element={<App />} />
           <Route path='/write-note' element={<WriteNote />} />
+          <Route path="/spoko" element={<Tak />} />
           <Route path="/note/:id" element={<ReadNote />} />
-          <Route path="/lolek" element={<RichtextEditor />} />
         </Routes>
       </BrowserRouter>
     </>
