@@ -1,7 +1,8 @@
-from flask import Flask, redirect, render_template, request, url_for, flash, jsonify, json, abort
+from flask import Flask, redirect, render_template, request, url_for, flash, jsonify, abort
 from flask_login import LoginManager, current_user, logout_user, login_user, UserMixin, login_required
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import json
 # pip install python-dotenv
 
 app = Flask(__name__)

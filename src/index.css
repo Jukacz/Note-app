@@ -1,7 +1,10 @@
 .rdw-editor-main {
   height: 90%;
 }
-body, html {
+
+body,
+html {
+  background-color: wheat;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -15,9 +18,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.DraftEditor-root {
+
+/* .DraftEditor-root {
   /* overflow: hidden; */
+
+/* .rdw-editor-wrapper {
+  height: 90vh;
+} */
+
+
+.rdw-editor-main {
+  min-height: 70vh;
+  width: 80vh;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: white;
 }
+
+.DraftEditor-root {
+  min-height: 100vh;
+  /* max-width: 80vh; */
+}
+
 #root {
   height: 100%;
 }

@@ -12,9 +12,11 @@ class User(db.Model):
 class Notes(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
-    content = db.Column(db.String(100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), nullable=False)
+    content = db.Column(db.String(
+        100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000), nullable=False)
     date_created = db.Column(
         db.DateTime, nullable=False, default=datetime.utcnow())
+
 
 with app.app_context():
     db.create_all()

@@ -2,12 +2,12 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  useParams
+  useParams,
+  useNavigate
 } from "react-router-dom";
-import ReadNotes from "./components/readnote/read-note";
-import App from "./components/index/app";
-import Header from "./components/header/header";
-import WriteNote from "./components/writeNote/write-note";
+import ReadNotes from "./views/readnote/read-note";
+import App from "./views/index/app";
+import WriteNote from "./views/writeNote/write-note";
 import Tak from "./spoko";
 
 
@@ -16,13 +16,11 @@ function RoutesMenu() {
 
   const ReadNote = () => {
     let { id } = useParams();
-    return <ReadNotes id={id} />
+    return <WriteNote id={id} />
   }
-
   return (
     <>
       <BrowserRouter>
-        <Header />
         <Routes>
           <Route path='/' element={<App />} />
           <Route path='/write-note' element={<WriteNote />} />

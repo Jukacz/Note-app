@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import './App.css';
+import Header from "../../components/header/header";
 const App = () => {
     const [notes, setNotes] = useState([])
     const toNote = useNavigate()
@@ -10,13 +11,13 @@ const App = () => {
     useEffect(() => {
         const fetchData = async () => {
             const getProfile = await axios.get("/notes").then(response => response.data)
-            console.log(getProfile)
             setNotes(getProfile)
         }
         fetchData()
     }, [])
     return (
         <>
+            <Header />
             <h1 className="text-align-center">Witamy w Stronach Notatkach </h1>
             {notes.map((note, index) => {
                 return (
