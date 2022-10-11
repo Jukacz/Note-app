@@ -26,20 +26,6 @@ code {
   height: 90vh;
 } */
 
-
-.rdw-editor-main {
-  min-height: 70vh;
-  width: 80vh;
-  margin-right: auto;
-  margin-left: auto;
-  background-color: white;
-}
-
-.DraftEditor-root {
-  min-height: 100vh;
-  /* max-width: 80vh; */
-}
-
 #root {
   height: 100%;
 }

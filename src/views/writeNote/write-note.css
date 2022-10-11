@@ -1,15 +1,33 @@
+.rdw-editor-toolbar {
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+    justify-content: center;
+}
 body,
 html {
     height: 100%;
     background-color: rgb(245, 245, 245);
 }
 
-.DraftEditor-root {
+.rdw-editor-main {
+    min-height: 70vh;
+    width: 75vh;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-left: auto;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 10px -4px rgba(127, 127, 127, 1);
+-moz-box-shadow: 0px 0px 10px -4px rgba(127, 127, 127, 1);
+box-shadow: 0px 0px 10px -4px rgba(127, 127, 127, 1);
+  }
+  
+  .DraftEditor-root {
+    min-height: 100vh;
     padding: 10px;
-}
+    padding-left: 50px;
+    padding-right: 50px;
 
-.rdw-editor-toolbar {
-    position: sticky;
-    top: 0px;
-    z-index: 2;
-}
+    /* max-width: 80vh; */
+  }
+  

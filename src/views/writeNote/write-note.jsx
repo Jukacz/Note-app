@@ -6,9 +6,10 @@ import Header from "../../components/header/header";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import axios from "axios";
 const WriteNote = (props) => {
-  const idOfSiema = typeof (props.id) !== "undefined" ? props.id : false
+  const idOfSiema = props.id === "new-note" ? false : props.id 
+  const [oldText, setoldText] = useState("")
   const [created, setCreated] = useState(() => idOfSiema !== false)
-  const [id, setId] = useState(() => !idOfSiema ? props.id : 0)
+  const [id, setId] = useState(() => idOfSiema ? props.id : 0)
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -31,7 +32,9 @@ const WriteNote = (props) => {
 
 
   const saveNewNote = async () => {
-    if (!created && idOfSiema) {
+    console.log(idOfSiema);
+    console.log(created)
+    if (!created && !idOfSiema) {
       await axios.post("/notes", {
         content: convertToRaw(editorState.getCurrentContent()),
         title: "Siemaaa"
@@ -39,16 +42,20 @@ const WriteNote = (props) => {
       setCreated(true)
     }
     else {
-      axios.patch(`/note?id=${id}`, {
+      // console.log()
+      if (JSON.stringify(editorState.getCurrentContent()) !== oldText) {
+        setoldText(JSON.stringify(editorState.getCurrentContent()))
+        axios.patch(`/note?id=${id}`, {
         content: convertToRaw(editorState.getCurrentContent()),
         title: "Siemaaa"
       })
+    }
     }
   }
   return (
     <>
       <Header />
-      <div style={{ border: "1px solid black", padding: '2px', height: "100%" }}>
+      <div style={{ padding: '2px', height: "100%" }}>
         <Editor
           editorState={editorState}
           onEditorStateChange={setEditorState}
