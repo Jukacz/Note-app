@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react"
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useNavigate } from "react-router-dom";
-import axios from 'axios';
 import './App.css';
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "../../components/header/header";
+import { Card } from "react-bootstrap";
 const App = () => {
     const [notes, setNotes] = useState([])
     const toNote = useNavigate()
@@ -19,15 +20,21 @@ const App = () => {
         <>
             <Header />
             <h1 className="text-align-center">Witamy w Stronach Notatkach </h1>
-            {notes.map((note, index) => {
-                return (
-                    <div key={index}>
-                        <h1>{note.name}</h1>
-                        <p>{note.note.substring(0, 100)}...</p>
-                        <button className="btn btn-go" onClick={() => toNote(`/note/${note.id}`)}>Do Notatki!</button>
-                    </div>
-                )
-            })}
+            <div className="row-notes">
+                {notes.map((note, index) => {
+                    return (
+                                <Card style={{ width: '18rem' }} onClick={() => toNote(`/note/${note.id}`)} key={index}>
+                                <Card.Img variant="top" src="" />
+                                <Card.Body>
+                                    <Card.Title>{note.name}</Card.Title>
+                                    <Card.Text>
+                                    {note.note.substring(0, 100)}...
+                                    </Card.Text>
+                                </Card.Body>
+                                </Card>
+                    )
+                })}
+            </div>
         </>
     )
 }
